@@ -5,10 +5,9 @@ import { NextResponse } from "next/server";
 // DELETE
 export async function DELETE(
   req: Request,
-  contextPromise: Promise<{ params: { id: string } }>
+  context: { params: { id: string } }
 ) {
-  const { params } = await contextPromise;
-  const { id } = params; // <-- use params directly, no await!
+  const { id } = context.params;
   await connectToDatabase();
   await Transaction.findByIdAndDelete(id);
   return NextResponse.json({ message: "Deleted" });
@@ -17,10 +16,9 @@ export async function DELETE(
 // PUT
 export async function PUT(
   req: Request,
-  contextPromise: Promise<{ params: { id: string } }>
+  context: { params: { id: string } }
 ) {
-  const { params } = await contextPromise;
-  const { id } = params; // <-- use params directly, no await!
+  const { id } = context.params;
   const body = await req.json();
   await connectToDatabase();
   const updated = await Transaction.findByIdAndUpdate(id, body, { new: true });
