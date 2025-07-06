@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸 Personal Finance Visualizer
 
-## Getting Started
+A simple, full-featured personal finance tracker built with **Next.js**, **React**, **MongoDB**, **Recharts**, and **shadcn/ui**. Track expenses, categorize transactions, set budgets, and visualize spending insights — all without login/signup.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+### ✅ Stage 1: Basic Transaction Tracking
+
+* Add/Edit/Delete transactions
+* Transaction list view
+* Monthly expenses bar chart
+* Basic form validation
+
+### ✅ Stage 2: Categories
+
+* Predefined transaction categories
+* Category-wise expense pie chart
+* Summary cards:
+
+  * 💰 Total expenses
+  * 🧾 Category breakdown
+  * 🕑 Recent transactions
+
+### ✅ Stage 3: Budgeting
+
+* Set monthly budgets per category
+* Budget vs actual comparison chart
+* Visual alerts for overspending
+* Simple spending insights (total budget/spent)
+
+---
+
+## 🛠 Tech Stack
+
+* **Frontend**: Next.js 14, React 18, TailwindCSS (via `shadcn/ui`)
+* **Charts**: [Recharts](https://recharts.org/)
+* **Database**: MongoDB (via MongoDB Atlas)
+* **API Routes**: Next.js server actions
+* **State**: React Hooks
+* **Validation**: HTML5 & simple conditional logic
+
+---
+
+## 📂 Folder Structure
+
+```
+personal-finance-visualizer/
+├── app/
+│   ├── api/
+│   │   ├── transactions/
+│   │   │   └── route.ts
+│   │   └── budgets/
+│   │       └── route.ts
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── TransactionForm.tsx
+│   ├── TransactionList.tsx
+│   ├── CategoryChart.tsx
+│   ├── BudgetForm.tsx
+│   ├── BudgetChart.tsx
+│   └── SummaryCards.tsx
+├── models/
+│   ├── Transaction.ts
+│   └── Budget.ts
+└── utils/
+    └── db.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📸 Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![alt text](public/image.png)      ![alt text](public/image-3.png)
+![alt text](public/image-1.png)   ![alt text](public/image-2.png)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 How to Run Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/your-username/personal-finance-visualizer.git
+cd personal-finance-visualizer
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env.local` file with:
 
-## Deploy on Vercel
+```env
+MONGODB_URI=your-mongodb-atlas-uri
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Live Demo
+
+**🔗 [Your Vercel Link Here](https://your-app.vercel.app)**
+
+---
+
+## ❗ Notes
+
+* No authentication or login is required.
+* Optimized for desktop and mobile screens.
+* Cursor changes to pointer on all interactive buttons.
+* Color-coded charts (red = overspent).
+
+---
+
+
+## 📬 Contact
+
+Made with ❤️ by [Rohit Kumar](rk464152@gmail.com)
+
+##  hoping for an optimistic response from your side !!
+

@@ -7,7 +7,7 @@ export default function MonthlyChart() {
   type Transaction = {
     date: string;
     amount: number;
-    // add other fields if needed
+    
   };
 
   const [data, setData] = useState<{ month: string; amount: number }[]>([]);

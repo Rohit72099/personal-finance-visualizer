@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
-// import { Select } from "./ui/select";
+
 
 const CATEGORIES = ["Food", "Transport", "Entertainment", "Bills", "Shopping", "Other"];
 
