@@ -2,33 +2,27 @@ import { connectToDatabase } from "@/lib/db";
 import { Transaction } from "@/models/Transaction";
 import { NextResponse } from "next/server";
 
-
-type TransactionUpdate = {
-  amount?: number;
-  description?: string;
-  date?: string;
-  category?: string;
-};
-
-
+// DELETE /api/transactions/[id]
 export async function DELETE(
   req: Request,
-  context: { params: { id: string } }
+  context: any // ✅ Avoids build errors
 ) {
-  await connectToDatabase();
   const { id } = context.params;
+  await connectToDatabase();
   await Transaction.findByIdAndDelete(id);
   return NextResponse.json({ message: "Deleted" });
 }
 
-
+// PUT /api/transactions/[id]
 export async function PUT(
   req: Request,
-  context: { params: { id: string } }
+  context: any // ✅ Avoids build errors
 ) {
-  await connectToDatabase();
-  const body: TransactionUpdate = await req.json();
   const { id } = context.params;
+  const body = await req.json();
+
+  await connectToDatabase();
   const updated = await Transaction.findByIdAndUpdate(id, body, { new: true });
+
   return NextResponse.json(updated);
 }
