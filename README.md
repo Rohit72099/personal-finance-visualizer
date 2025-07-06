@@ -98,7 +98,7 @@ MONGODB_URI=your-mongodb-atlas-uri
 
 ## 🌐 Live Demo
 
-**🔗 [Your Vercel Link Here](https://your-app.vercel.app)**
+**🔗 [Your Vercel Link Here](https://personal-finance-visualizer-puce-two.vercel.app/)**
 
 ---
 
