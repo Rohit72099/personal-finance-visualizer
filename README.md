@@ -34,7 +34,7 @@ A simple, full-featured personal finance tracker built with **Next.js**, **React
 
 ## 🛠 Tech Stack
 
-* **Frontend**: Next.js 14, React 18, TailwindCSS (via `shadcn/ui`)
+* **Frontend**: Next.js 15, React 19, TailwindCSS (via `shadcn/ui`)
 * **Charts**: [Recharts](https://recharts.org/)
 * **Database**: MongoDB (via MongoDB Atlas)
 * **API Routes**: Next.js server actions
