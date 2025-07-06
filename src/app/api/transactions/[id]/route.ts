@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 // PUT
 export async function PUT(
   req: Request,
-  context: { params: { id: string } }
+  context: { params: any } 
 ) {
   await connectToDatabase();
   const body = await req.json();
@@ -14,10 +14,10 @@ export async function PUT(
   return NextResponse.json(updated);
 }
 
-//  DELETE
+// DELETE
 export async function DELETE(
   req: Request,
-  context: { params: { id: string } }
+  context: { params: any } 
 ) {
   await connectToDatabase();
   const { id } = context.params;
