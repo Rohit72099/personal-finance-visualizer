@@ -2,27 +2,27 @@ import { connectToDatabase } from "@/lib/db";
 import { Transaction } from "@/models/Transaction";
 import { NextResponse } from "next/server";
 
-// DELETE /api/transactions/[id]
+// DELETE
 export async function DELETE(
   req: Request,
-  context: any // ✅ Avoids build errors
+  contextPromise: Promise<{ params: { id: string } }>
 ) {
-  const { id } = context.params;
+  const { params } = await contextPromise;
+  const { id } = params; // <-- use params directly, no await!
   await connectToDatabase();
   await Transaction.findByIdAndDelete(id);
   return NextResponse.json({ message: "Deleted" });
 }
 
-// PUT /api/transactions/[id]
+// PUT
 export async function PUT(
   req: Request,
-  context: any // ✅ Avoids build errors
+  contextPromise: Promise<{ params: { id: string } }>
 ) {
-  const { id } = context.params;
+  const { params } = await contextPromise;
+  const { id } = params; // <-- use params directly, no await!
   const body = await req.json();
-
   await connectToDatabase();
   const updated = await Transaction.findByIdAndUpdate(id, body, { new: true });
-
   return NextResponse.json(updated);
 }
