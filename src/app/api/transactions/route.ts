@@ -14,3 +14,4 @@ export async function POST(req: Request) {
   const transaction = await Transaction.create(body);
   return NextResponse.json(transaction);
 }
+
