@@ -61,11 +61,41 @@ export default function BudgetChart() {
     load();
   }, []);
 
+  // Calculate simple insights
+  const highestSpending = data.reduce(
+    (max, curr) => (curr.spent > max.spent ? curr : max),
+    { category: "", spent: 0, budget: 1 }
+  );
+  const percentUsed =
+    highestSpending.budget > 0
+      ? Math.round((highestSpending.spent / highestSpending.budget) * 100)
+      : 0;
+
   const overspending = data.some((d) => d.spent > d.budget);
 
   return (
     <div className="h-auto mt-6">
       <h2 className="font-semibold text-lg mb-2">Budget vs Actual</h2>
+
+      {/* Simple Spending Insights */}
+      <div className="mb-4 p-4 bg-blue-50 rounded">
+        <h3 className="font-semibold mb-2">Simple Spending Insights</h3>
+        {data.length === 0 ? (
+          <span>No data available.</span>
+        ) : (
+          <div>
+            <div>
+              <strong>Highest Spending Category:</strong>{" "}
+              {highestSpending.category || "N/A"}
+            </div>
+            <div>
+              <strong>Spent vs Budget:</strong>{" "}
+              {percentUsed}% of budget used in this category
+            </div>
+          </div>
+        )}
+      </div>
+
             <button
         onClick={async () => {
             const confirmed = confirm("Are you sure you want to reset all budgets?");
