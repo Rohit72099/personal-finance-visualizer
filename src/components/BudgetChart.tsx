@@ -66,7 +66,29 @@ export default function BudgetChart() {
   return (
     <div className="h-auto mt-6">
       <h2 className="font-semibold text-lg mb-2">Budget vs Actual</h2>
+            <button
+        onClick={async () => {
+            const confirmed = confirm("Are you sure you want to reset all budgets?");
+            if (!confirmed) return;
+
+            const res = await fetch("/api/budgets/reset", {
+            method: "DELETE",
+            });
+
+            if (res.ok) {
+            alert("Budgets reset successfully.");
+            window.location.reload(); 
+            } else {
+            alert("Failed to reset budgets.");
+            }
+        }}
+        className="mt-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+        >
+        Reset Budgets
+        </button>
+
       <div className="bg-gray-100 p-4 rounded mb-4">
+        
         <strong>Total Budget:</strong> ₹{totals.totalBudget} | <strong>Total Spent:</strong> ₹{totals.totalSpent}
       </div>
       <ResponsiveContainer width="100%" height={300}>
